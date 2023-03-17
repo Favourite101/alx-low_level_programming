@@ -1,5 +1,7 @@
 #include <stdio.h>
-int main(void) {
+int main(void)
+{
+	/* Program to print the sizes of different data types */
 	char a;
 	int b;
 	long int c;
