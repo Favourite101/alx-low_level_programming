@@ -2,6 +2,8 @@
 
 /**
  * main - Prints a sentence with printf
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
