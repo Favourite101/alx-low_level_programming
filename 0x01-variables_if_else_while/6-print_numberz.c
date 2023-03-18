@@ -3,7 +3,7 @@
 /**
  * main - print 0 to 9 using putchar
  *
- * Return - Always 0.
+ * Return: Always 0.
  */
 int main(void)
 {

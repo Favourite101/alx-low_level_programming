@@ -3,7 +3,7 @@
 /**
  * main - prints base 16
  *
- * Return: q
+ * Return: Always 0
  */
 int main(void)
 {
@@ -13,7 +13,7 @@ int main(void)
 	{
 		putchar((hex % 10) + '0');
 	}
-	
+
 	for (hex = 'a'; hex <= 'f'; hex++)
 	{
 		putchar(hex);

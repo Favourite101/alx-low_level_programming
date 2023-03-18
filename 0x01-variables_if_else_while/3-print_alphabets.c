@@ -3,7 +3,7 @@
 /**
  * main - prints both lowercase and uppercase alphabet
  *
- * Return - Always 0.
+ * Return: Always 0.
  */
 int main(void)
 {
@@ -13,7 +13,7 @@ int main(void)
 	{
 		putchar(mixed);
 	}
-	
+
 	for (mixed = 'A'; mixed <= 'Z'; mixed++)
 	{
 		putchar(mixed);
@@ -21,4 +21,4 @@ int main(void)
 	putchar('\n');
 
 	return (0);
-}		
+}
