@@ -4,7 +4,7 @@
 /**
  * main - Prints quote
  *
- * return - 1.
+ * return: Always 1.
  */
 int main(void)
 {
