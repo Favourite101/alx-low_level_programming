@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - Prints numbers
+ *
+ * Return: always 0
+ */
 int main(void)
 {
 	int x, y, z;
