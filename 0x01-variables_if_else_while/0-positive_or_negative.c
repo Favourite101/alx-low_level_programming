@@ -1,16 +1,23 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+<<<<<<< HEAD
 /* more headers goes there */
+=======
+>>>>>>> dbda3e8b78cc9885283a2d761b354c3a6ade6728
 
-/* betty style doc for function main goes there */
+/**
+ * main - prints sign of a number
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	/* your code goes there */
+
 	if (n > 0)
 	{
 		printf("%d is positive\n", n);
@@ -23,5 +30,6 @@ int main(void)
 	{
 		printf("%d is negative\n", n);
 	}
+
 	return (0);
 }
