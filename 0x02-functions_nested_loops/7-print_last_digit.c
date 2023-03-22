@@ -2,6 +2,7 @@
 
 /**
  * print_last_digit - returns the last digit of a number
+ * @f: parameter to be checked
  *
  * Return: last digit
  */
