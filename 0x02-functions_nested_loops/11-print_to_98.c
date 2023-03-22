@@ -3,6 +3,8 @@
 
 /**
  * print_to_98 - prints numbers n to 98
+ * @r: parameter to be checked
+ * @n: member
  *
  * Return: void
  */
@@ -23,6 +25,6 @@ void print_to_98(int n)
 			printf("%d, ", n++);
 		}
 		printf("%d\n", n);
-		
+
 	}
 }
