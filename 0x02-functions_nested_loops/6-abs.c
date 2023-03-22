@@ -2,6 +2,7 @@
 
 /**
  * _abs - prints absolute number
+ * @f: parameter to be checked
  *
  * Return: Absolute value
  */
