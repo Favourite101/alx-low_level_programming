@@ -3,7 +3,6 @@
 
 /**
  * print_to_98 - prints numbers n to 98
- * @r: parameter to be checked
  * @n: member
  *
  * Return: void
