@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	unsigned long t1 = 1, t2 = 2, sum;
+	unsigned long t1 = 0, t2 = 1, sum;
 	float totsum;
 
 	while (sum < 4000000)
