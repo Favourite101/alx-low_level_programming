@@ -8,18 +8,23 @@
 int main(void)
 {
 	int i;
-	int t1 = 1, t2 = 2;
-	int sum = t1 + t2;
-	
-	printf("%d, %d, ", t1, t2);
+	unsigned long t1 = 1, t2 = 2;
+	unsigned long sum = t1 + t2;
+
+	printf("%lu, %lu, ", t1, t2);
 	for (i = 3; i <= 50; i++)
 	{
-		printf("%d, ", sum);
+		printf("%lu", sum);
 		t1 = t2;
 		t2 = sum;
 		sum = t1 + t2;
+		if (i == 50)
+		{
+			printf("\n");
+		} else
+		{
+			printf(", ");
+		}
 	}
-	printf("\n");
-
 	return (0);
 }
