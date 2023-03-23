@@ -1,10 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-<<<<<<< HEAD
-/* more headers goes there */
-=======
->>>>>>> dbda3e8b78cc9885283a2d761b354c3a6ade6728
 
 /**
  * main - prints sign of a number
