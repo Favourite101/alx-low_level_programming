@@ -4,8 +4,6 @@
 /**
  * print_times_table - prints the multiplication table for n
  * @n: parameter to be checked
- * @i: loop1
- * @j: loop2
  *
  * Return: Always 0
  */
@@ -21,6 +19,7 @@ void print_times_table(int n)
 			for (j = 0; j <= n; j++)
 			{
 				int times = i * j;
+
 				if (j != 0)
 				{
 					if (times < 10)
