@@ -13,8 +13,8 @@ int main(void)
     int day;
     int year;
 
-    month = 02;
-    day = 29;
+    month = 03;
+    day = 31;
     year = 2004;
 
     printf("Date: %02d/%02d/%04d\n", month, day, year);
