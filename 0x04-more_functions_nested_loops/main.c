@@ -1,9 +1,8 @@
-#include  <stdio.h>
+#include  "main.h"
 
 int main(void)
 {
-	int fav = 1;
-	fav++;
+	print_most_numbers();
 
 	return(0);
 }
