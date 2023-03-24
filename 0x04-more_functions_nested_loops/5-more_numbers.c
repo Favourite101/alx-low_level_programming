@@ -2,7 +2,6 @@
 
 /**
  * print_more_numbers - prints 0 to 14
- * @n: number to be checked
  *
  * Return: Always void
  */
@@ -15,7 +14,7 @@ void more_numbers(void)
 	{
 		for (n = 0; n <= 14; n++)
 		{
-			if (n >= 11 && n <= 14)
+			if (n > 9)
 			{
 				_putchar((n / 10) + '0');
 			}
