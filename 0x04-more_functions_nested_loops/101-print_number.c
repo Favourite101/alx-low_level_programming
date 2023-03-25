@@ -10,7 +10,7 @@
  */
 void print_number(int n)
 {
-	unsigned f = abs(n);
+	unsigned int f = abs(n);
 	int a = f % 10;
 
 	if (n < 0)
