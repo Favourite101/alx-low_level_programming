@@ -17,5 +17,12 @@ void print_number(int n)
 	{
 		print_number(n / 10);
 	}
-	_putchar((n % 10) + '0');
+	if (n < 0)
+	{
+		_putchar(-(n % 10) + '0');
+	}
+	else
+	{
+		_putchar((n % 10) + '0');
+	}
 }
