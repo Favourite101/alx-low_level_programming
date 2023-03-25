@@ -10,15 +10,16 @@ int main(void)
 {
 	long int num = 612852475143;
 	int n;
+	int root = sqrt(num);
 
-	for (n = (int) sqrt(num); n >= 1; n++)
+	for (n = root; n >= 1; n++)
 	{
 		if (num % n == 0)
 		{
-				printf("%d\n", n);
-				break;
+			printf("%d\n", n);
+			break;
 		}
 	}
 
-	return(0);
+	return (0);
 }
