@@ -7,8 +7,8 @@
  */
 int main(void)
 {
-	char *key;
-	printf("%p", srand(key));
+	int key;
+	printf("%d", srand(key));
 
 	return 0;
 }
