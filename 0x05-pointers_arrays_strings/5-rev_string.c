@@ -14,14 +14,9 @@ void rev_string(char *s)
 	{
 		count++;
 	}
-	begin = count - 1;
-	while (begin >= 0)
+	for (begin = count - 1; begin >= 0; begin--)
 	{
-		for (i = 0; i <= count - 1; i++)
-		{
-			s[i] = s[begin];
-		}
-		begin--;
+		s[count] = s[begin];
 	}
 	_putchar('\n');
 }
