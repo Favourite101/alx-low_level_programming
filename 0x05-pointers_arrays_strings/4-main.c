@@ -8,8 +8,11 @@
 int main(void)
 {
     char *str;
+    char *holb;
 
     str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
-    print_rev(str);
+    holb = "Holberton!";
+    /*print_rev(str);*/
+    print_rev(holb);
     return (0);
 }
