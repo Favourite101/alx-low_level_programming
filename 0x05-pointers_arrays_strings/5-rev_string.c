@@ -9,9 +9,8 @@
 void rev_string(char *s)
 {
 	int begin, count = 0;
-	char *rev;
+	char rev;
 
-	rev = "";
 	while (s[count])
 	{
 		count++;
@@ -20,5 +19,11 @@ void rev_string(char *s)
 	{
 		*rev = s[begin];
 	}
+	for (i = 0; i < len / 2; i++)
+			{
+						tmp = s[i];
+								s[i] = s[len1];
+										s[len1--] = tmp;
+											}
 	/*_putchar('\n');*/
 }
