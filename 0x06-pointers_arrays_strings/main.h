@@ -3,5 +3,6 @@
 
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
+char *cap_string(char *);
 
 #endif /*MAIN_H*/
