@@ -4,7 +4,7 @@
  * _strncat - concatenates n bytes of two strings
  * @dest: destination sring
  * @str: source string
- * @n: number of bytes
+ * number of bytes
  *
  * Return: pointer to string
  */
