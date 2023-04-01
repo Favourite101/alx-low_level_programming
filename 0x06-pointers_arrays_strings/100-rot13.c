@@ -10,11 +10,10 @@ char *rot13(char *s)
 {
 	char *a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	int i, j, k;
+	int i = 0, j, k = i;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		k = i;
 		for (j = 0; j < 52; j++)
 		{
 			if (s[i] == a[j])
