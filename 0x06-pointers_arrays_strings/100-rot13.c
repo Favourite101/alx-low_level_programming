@@ -12,7 +12,7 @@ char *rot13(char *s)
 	char *b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	int i, j;
 
-	for (i = 0; s[i] != '\0'); i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 26; j++)
 		{
