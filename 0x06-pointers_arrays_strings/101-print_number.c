@@ -11,23 +11,22 @@ void print_number(int n)
 {
 	unsigned int i = abs(n);
 
-	if (n >= 0 && n < 10)
+	if (n < 0)
 	{
-		_putchar((n % 10) + '0');
-	}
-	else if (n >= 10)
-	{
-		_putchar(n + '0');
-	}
-	else if (n < 0 && n > -10)
-	{
-		_putchar('-');
+		_putchar(45);
+		if (n / 10)
+		{
+			print_number( i / 10);
+		}
 		_putchar((i % 10) + '0');
+
 	}
 	else
 	{
-		_putchar(45);
-		_putchar((i / 10) + '0');
-		_putchar((i % 10) + '0');
+		if (n / 10)
+		{
+			print_number(n / 10);
+		}
+		_putchar((n % 10) +'0');
 	}
 }
