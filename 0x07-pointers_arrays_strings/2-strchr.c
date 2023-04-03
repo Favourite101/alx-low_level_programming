@@ -23,8 +23,8 @@ char *_strchr(char *s, char c)
 		if (s[j] == 'c')
 		{
 			c = s[j];
-			return (ptr);
 			break;
+			return (ptr);
 		}
 	}
 
