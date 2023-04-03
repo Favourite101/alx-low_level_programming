@@ -20,7 +20,7 @@ char *_strchr(char *s, char c)
 	}
 	for (j = 0; j <= i; j++)
 	{
-		if (s[j] == 'c')
+		if (s[j] == c)
 		{
 			c = s[j];
 			break;
