@@ -19,7 +19,11 @@ int _pow_recursion(int x, int y)
 	{
 		return (1);
 	}
-	power = x * x * _pow_recursion(x, y - 1);
+	if (y == 2)
+	{
+		return (x * x);
+	}
+	power = x * _pow_recursion(x, y - 1);
 
 	return (power);
 }
