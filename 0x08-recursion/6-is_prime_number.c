@@ -4,7 +4,7 @@
  * is_prime_number - returns 1 for prime numbers
  * @n: number
  *
- * Return 1 or 0;
+ * Return: 1 or 0;
  */
 int is_prime_number(int n)
 {
