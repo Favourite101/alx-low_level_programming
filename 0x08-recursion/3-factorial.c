@@ -10,7 +10,7 @@ int factorial(int n)
 {
 	int prod;
 
-	if (n == 1 or n == 0)
+	if (n == 1 || n == 0)
 	{
 		return (1);
 	}
