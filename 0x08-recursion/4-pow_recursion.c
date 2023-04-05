@@ -9,7 +9,7 @@
  */
 int _pow_recursion(int x, int y)
 {
-	int power;
+	int power, i = 0;
 
 	if (y < 0)
 	{
@@ -19,9 +19,10 @@ int _pow_recursion(int x, int y)
 	{
 		return (1);
 	}
-	if (y > 0)
+	if (i <= y)
 	{
-		power = x * _pow_recursion(x, y--);
+		power = x * _pow_recursion(x, y);
+		i++;
 	}
 
 	return (power);
