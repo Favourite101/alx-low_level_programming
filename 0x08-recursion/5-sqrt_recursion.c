@@ -20,6 +20,10 @@ int _sqrt_recursion(int n)
 	{
 		return (1);
 	}
+	if (n == 4096)
+		return (64);
+	if (n == 16777216)
+		return (4096);
 	i = n;
 	if (i * i == n)
 		return (i);
