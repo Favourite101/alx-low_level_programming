@@ -8,26 +8,23 @@
  */
 int _sqrt_recursion(int n)
 {
-	int i;
-
 	if (n < 0)
 		return (-1);
-	if (n == 0)
-	{
-		return (0);
-	}
-	if (n == 1)
-	{
-		return (1);
-	}
-	if (n == 4096)
-		return (64);
-	if (n == 16777216)
-		return (4096);
-	i = n;
+	return (check_sqrt(n, 0));
+}
+
+/**
+ * check_sqrt - check for square root
+ * @n: number
+ * @i: possible values
+ *
+ * Return: -1 or square root
+ */
+int check_sqrt(int n, int i)
+{
 	if (i * i == n)
 		return (i);
-	_sqrt_recursion(i - 1);
-
-	return (-1);
+	if (i * i > n)
+		return (-1);
+	return (check_sqrt(n, i + 1);
 }
