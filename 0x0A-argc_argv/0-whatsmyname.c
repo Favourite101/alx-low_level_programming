@@ -3,7 +3,6 @@
 
 /**
  * main - a program to print the name of this file
- * @argc: number of arguments
  * @argv: array of strings
  *
  * Return: 0
