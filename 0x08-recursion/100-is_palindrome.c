@@ -27,13 +27,13 @@ int get_length(char *s)
 	if (*s == '\0')
 		return (0);
 
-	return(1 + get_length(s + 1));
+	return (1 + get_length(s + 1));
 }
 
 /**
  * check_pal - checks if its a palindrome
  * @s: string
- * @j checker
+ * @j: checker
  * @length: length of string
  *
  * Return: 1 or 0
