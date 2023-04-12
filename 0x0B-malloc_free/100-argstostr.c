@@ -5,7 +5,7 @@
  * argstostr - concatenates all arguments
  * @ac: number of arguments
  * @av: array of strings
- * 
+ *
  * Return: pointer to string
  */
 char *argstostr(int ac, char **av)
@@ -23,6 +23,7 @@ char *argstostr(int ac, char **av)
 		}
 		counter++;
 	}
+	counter++;
 	favour = malloc(sizeof(char) * counter);
 	if (favour == NULL)
 		return (NULL);
@@ -38,5 +39,5 @@ char *argstostr(int ac, char **av)
 	}
 	favour[k] = '\0';
 
-	return(favour);
+	return (favour);
 }
