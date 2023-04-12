@@ -26,14 +26,14 @@ char *str_concat(char *s1, char *s2)
 	catt = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (catt == NULL)
 		return (NULL);
-	if (s1)
+	if (s1 != NULL)
 	{
 		for (i = 0; i < len1; i++)
 		{
 			catt[i] = s1[i];
 		}
 	}
-	if (s2)
+	if (s2 != NULL)
 	{
 		for (j = 0; j < len2; j++)
 		{
