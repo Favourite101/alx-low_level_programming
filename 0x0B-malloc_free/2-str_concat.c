@@ -10,8 +10,8 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, len1 = 0, len2 = 0;
-	char *catt;
+/*	int i, j, len1 = 0, len2 = 0;
+	char *catt;/
 
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
@@ -44,4 +44,5 @@ char *str_concat(char *s1, char *s2)
 	catt[i] = '\0';
 
 	return (catt);*/
+	return (s1);
 }
