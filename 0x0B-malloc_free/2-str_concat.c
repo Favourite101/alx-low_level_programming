@@ -10,16 +10,10 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-/*	int i, j, len1 = 0, len2 = 0;
+	int i, j, len1 = 0, len2 = 0;
 	char *catt;
 
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);*/
-	if (s1 == NULL)
-		return (s2);
-	if (s2 == NULL)
-		return (s1);
-/*	while (s1[len1] != '\0')
+	while (s1[len1] != '\0')
 		len1++;
 	while (s2[len2] != '\0')
 		len2++;
@@ -43,6 +37,5 @@ char *str_concat(char *s1, char *s2)
 	}
 	catt[i] = '\0';
 
-	return (catt);*/
-	return (s1);
+	return (catt);
 }
