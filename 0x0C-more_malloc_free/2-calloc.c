@@ -10,13 +10,13 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *favour;
+	char *favour;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	favour = malloc(nmemb * size);
-	if (malloc == NULL)
+	if (favour == NULL)
 		return (NULL);
 	for (i = 0; favour[i]; i++)
 	{
