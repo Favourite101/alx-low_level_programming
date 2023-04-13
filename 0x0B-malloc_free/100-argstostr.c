@@ -10,14 +10,14 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, k = 0, counter;
+	int i, j, k = 0, counter = 0;
 	char *favour;
 
 	if (ac <= 0 || av == NULL)
 		return (NULL);
 	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j]; j++)
+		for (j = 0; av[i][j] != '\0'; j++)
 		{
 			counter++;
 		}
