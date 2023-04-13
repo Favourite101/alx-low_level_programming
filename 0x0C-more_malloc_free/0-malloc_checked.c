@@ -3,10 +3,16 @@
 
 /**
  * malloc_checked - returns a pointer to the allocated memory
+ * @b: memory space to be allocated
  *
+ * Return: pointer to allocated memory
  */
 void *malloc_checked(unsigned int b)
 {
-	char *favour;
+	void *favour;
 	favour = malloc(b);
+	if (favour == NULL)
+		exit (98);
+
+	return (favour);
 }
