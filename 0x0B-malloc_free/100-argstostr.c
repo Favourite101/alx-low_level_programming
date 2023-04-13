@@ -23,6 +23,7 @@ char *argstostr(int ac, char **av)
 		}
 		counter++;
 	}
+	counter++;
 	favour = malloc(sizeof(char) * counter);
 	if (favour == NULL)
 		return (NULL);
