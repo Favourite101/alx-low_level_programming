@@ -18,9 +18,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	favour = malloc(nmemb * size);
 	if (favour == NULL)
 		return (NULL);
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < (nmemb * size); i++)
 	{
-		favour[i] = 48;
+		favour[i] = 0;
 	}
 
 	return (favour);
