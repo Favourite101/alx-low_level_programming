@@ -17,17 +17,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog = malloc(sizeof(dog_t));
 	if (new_dog == NULL)
 		return (NULL);
-	while (new_dog->name[len_name])
+	while (name[len_name])
 		len_name++;
-	while (new_dog->owner[len_owner])
+	while (owner[len_owner])
 		len_owner++;
-	new_dog->name = malloc(sizeof(name) * len_name + 1);
+	new_dog->name = malloc(sizeof(char) * len_name + 1);
 	if (new_dog->name == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
-	new_dog->owner = malloc(sizeof(owner) * len_owner + 1);
+	new_dog->owner = malloc(sizeof(char) * len_owner + 1);
 	if (new_dog->owner)
 	{
 		free(new_dog->name);
