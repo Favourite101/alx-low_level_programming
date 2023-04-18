@@ -2,6 +2,20 @@
 #include <stdlib.h>
 
 /**
+ * _strcpy - copies a string
+ * @dest: destination string
+ * @src: source string
+ */
+void _strcpy(char *dest, char *src)
+{
+	int len = 0, i;
+	while (src[len] != '\0')
+		len++;
+	for (i = 0; i < len; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+}
+/**
  * new_dog - creates new dog
  * @name: name of dog
  * @age: age of dog
@@ -12,7 +26,7 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
-	int len_name = 0, len_owner = 0, i, j;
+	int len_name = 0, len_owner = 0;
 
 	while (name[len_name] != '\0')
 		len_name++;
@@ -34,12 +48,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog);
 		return (NULL);
 	}
-	for (i = 0; name[i] != '\0'; i++)
-		new_dog->name[i] = name[i];
-	new_dog->name[i] = '\0';
-	for (j = 0; owner[j] != '\0'; j++)
-		new_dog->owner[i] = owner[i];
-	new_dog->owner[i] = '\0';
+	_strcpy(new_dog->name, name);
+	_strcpy(new_dog->owner, owner);
 	new_dog->age = age;
 
 	return (new_dog);
