@@ -4,7 +4,7 @@
 
 /*
  * print_dog - prints content of struct dog
- * @d: struct name
+ *  struct name
  *
  * Return: void
  */
