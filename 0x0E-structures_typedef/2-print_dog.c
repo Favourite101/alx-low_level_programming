@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*
- * print_dog - prints content of struct dog
- *  struct name
+/**
+ * print_dog - prints struct
+ * @d: struct ti be printed
  *
- * Return: void
+ * Return: 0
  */
 void print_dog(struct dog *d)
 {
