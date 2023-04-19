@@ -8,21 +8,7 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	int len = 0, i;
-
-	while (name[len] != '\0')
-		len++;
-	f = malloc(sizeof(char) * (len + 1));
-	if (f == NULL)
-	{
-		free(f);
+	if (f == NULL || name == NULL)
 		return;
-	}
-	for (i = 0; i < len; i++)
-	{
-		f[i] = name[i];
-		_putchar(f[i]);
-	}
-	f[i] = '\0';
-	_putchar(f[i]);
+	f(name);
 }
