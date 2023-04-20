@@ -10,20 +10,22 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i, j;
+	char *str;
 	va_list app;
 
-	if (separator == NULL || n == 0)
+	if (separator == NULL)
 		return;
 	va_start(app, n);
 	for (i = 0; i < n; i++)
 	{
-		if (va_arg(app, char *) == NULL)
+		str = va_arg(app, char *);
+		if (str == NULL)
 			printf("(nil)");
 		else
 		{
-			for (j = 0; va_arg(app, char *)[j] != '\0'; j++)
+			for (j = 0; str[j] != '\0'; j++)
 			{
-				printf("%c", va_arg(app, char *)[j]);
+				printf("%c", str[j]);
 			}
 		}
 		if (i == n - 1)
