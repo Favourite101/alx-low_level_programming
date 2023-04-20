@@ -4,6 +4,9 @@
 #include "variadic_functions.h"
 
 /**
+ * print_numbers - prints the numbers
+ * @separator: string that separates the characters
+ * @n: number of integers
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
