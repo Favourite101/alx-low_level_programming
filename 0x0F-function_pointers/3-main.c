@@ -9,7 +9,7 @@
  *
  * Return: Always 0
  */
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int calc, num1, num2;
 	char operator;
