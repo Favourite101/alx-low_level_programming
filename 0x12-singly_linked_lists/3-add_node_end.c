@@ -11,12 +11,12 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t tbr;
+	list_t *tbr;
 	int len = 0;
 	list_t *one = *head;
 
 	tbr = malloc(sizeof(list_t));
-	if (!trb)
+	if (!tbr)
 		return (NULL);
 	while (str[len])
 		len++;
