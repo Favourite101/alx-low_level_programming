@@ -25,9 +25,9 @@ void _strcpy(char *dest, char *src)
  *
  * Return: pointer to new_dog
  */
-dog_t *new_dog(char *name, float age, char *owner)
+dog *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog *new_dog;
 	int len_name = 0, len_owner = 0;
 
 	while (name[len_name] != '\0')

@@ -5,7 +5,7 @@
  * free_dog - free struct dog
  * @d: struct to be freed
  */
-void free_dog(dog_t *d)
+void free_dog(dog *d)
 {
 	if (d)
 	{
