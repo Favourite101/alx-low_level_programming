@@ -15,7 +15,7 @@ int is_prime_number(int n)
 		return (0);
 	}
 
-	return (check_prime(n, 1));
+	return (check_prime(n, 2));
 }
 
 /**
@@ -23,7 +23,7 @@ int is_prime_number(int n)
  * @n: number to be checked
  * @i: checkers
  *
- * Return 1 or 0
+ * Return: 1 or 0
  */
 int check_prime(int n, int i)
 {
@@ -33,7 +33,7 @@ int check_prime(int n, int i)
 		{
 			return (0);
 		}
-		check_prime(n, i +1);
+		check_prime(n, i + 1);
 	}
 	return (1);
 }
