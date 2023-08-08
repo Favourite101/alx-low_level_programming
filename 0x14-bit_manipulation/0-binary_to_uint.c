@@ -1,4 +1,3 @@
-#include <math.h>
 #include "main.h"
 
 /**
@@ -10,7 +9,7 @@
 unsigned int binary_to_uint(const char *b)
 {
     int i;
-    unsigned int res;
+    unsigned int res, pow;
 
     if (b == NULL)
     {
@@ -23,15 +22,11 @@ unsigned int binary_to_uint(const char *b)
             return (-1);
         }
     }
-    while (*b)
-    {
-        if (b[i] == '1')
-        {
-            res += i;
-        }
-        i--;
-        b++;
-    }
+    for (pow = 1, res = 0, i--; i >= 0; i--, pow *= 2)
+	{
+		if (b[i] == '1')
+			res += pow;
+	}
 
 return (res);
 }
