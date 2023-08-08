@@ -27,7 +27,7 @@ unsigned int binary_to_uint(const char *b)
     {
         if (b[i] == '1')
         {
-            res += (pow(2, i));
+            res += i;
         }
         i--;
         b++;
