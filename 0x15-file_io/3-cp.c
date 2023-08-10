@@ -31,7 +31,7 @@ int main(int argc, char **argv)
     op1 = open(argv[1], O_RDONLY);
     op2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
     re = read(op1, buff, 1024);
-    while (re == 1024)
+    do
     {
         if (op1 == -1 || re == -1)
         {
@@ -49,6 +49,7 @@ int main(int argc, char **argv)
         re = (op1, buff, 1024);
         op2 = open(argv[2], O_WRONLY | O_APPEND);
     }
+    while (re > 0);
     free(buff);
     cl1 = close(op1);
     cl2 = close(op2);
