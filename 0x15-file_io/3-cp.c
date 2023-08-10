@@ -25,28 +25,28 @@ int main(int argc, char **argv)
     buff = malloc(sizeof(char) * 1024);
     if (buff == NULL)
     {
-        dprintf(STDERR_FILENO, "Error: Can't write to file %s", argv[2]);
+        dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
         exit(99);
     }
     op1 = open(argv[1], O_RDONLY);
-    op2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
     re = read(op1, buff, 1024);
+    op2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
     do
     {
         if (op1 == -1 || re == -1)
         {
-            dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
+            dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
             free(buff);
             exit(98);
         }
         wr = write(op2, buff, re);
         if (op2 == -1 || wr == -1)
         {
-            dprintf(STDERR_FILENO, "Error: Can't write to file %s", argv[2]);
+            dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
             free(buff);
             exit(99);
         }
-        re = (op1, buff, 1024);
+        re = read(op1, buff, 1024);
         op2 = open(argv[2], O_WRONLY | O_APPEND);
     }
     while (re > 0);
@@ -55,13 +55,13 @@ int main(int argc, char **argv)
     cl2 = close(op2);
     if (cl1 == -1)
     {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %s", argv[1]);
+        dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[1]);
         exit(100);
 
     }
     if (cl2 == -1)
     {
-        dprintf(STDERR_FILENO, "Error: Can't close fd %s", argv[2]);
+        dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[2]);
         exit(100);
     }
 
