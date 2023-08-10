@@ -1,9 +1,11 @@
 #include "main.h"
 
 /*
-* read_textfile: reads a textfile
-* @filename - name of file
-* @letters - n
+* read_textfile - reads a textfile
+* @filename: name of file
+* @letters: n
+*
+* Return: written
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -25,7 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
         return (0);
     }
     free(my_file);
-    fclose(op);
+    close(op);
 
     return (wr);
 }
