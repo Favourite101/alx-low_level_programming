@@ -15,7 +15,7 @@ void abi(unsigned char *e_ident);
 void osabi(unsigned char *e_ident);
 void type(unsigned int e_type, unsigned char *e_ident);
 void entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
+void elf_ex(int elf);
 
 /**
  * check_elf - Checks if a file is an ELF file.
@@ -244,12 +244,12 @@ void entry(unsigned long int e_entry, unsigned char *e_ident)
 }
 
 /**
- * close_elf - Closes an ELF file.
+ * elf_ex - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
  *
  * Description: If the file cannot be closed - exit code 98.
  */
-void close_elf(int elf)
+void elf_ex(int elf)
 {
 	if (close(elf) == -1)
 	{
@@ -284,7 +284,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		close_elf(o);
+		elf_ex(o);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
@@ -292,7 +292,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (r == -1)
 	{
 		free(header);
-		close_elf(o);
+		elf_ex(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
@@ -309,6 +309,6 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	entry(header->e_entry, header->e_ident);
 
 	free(header);
-	close_elf(o);
+	elf_ex(o);
 	return (0);
 }
