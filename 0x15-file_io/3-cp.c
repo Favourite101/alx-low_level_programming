@@ -22,6 +22,18 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	if (argv[1] == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		free(buff);
+		exit(98);
+	}
+	if (argv[2] == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		free(buff);
+		exit(99);
+	}
 	buff = malloc(sizeof(char) * 1024);
 	if (buff == NULL)
 	{
