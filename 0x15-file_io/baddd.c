@@ -6,16 +6,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void is_elf(unsigned char *elfin);
-void magic(unsigned char *elfin);
-void class(unsigned char *elfin);
-void data(unsigned char *elfin);
-void version(unsigned char *elfin);
-void abi(unsigned char *elfin);
-void osabi(unsigned char *elfin);
-void type(unsigned int elfty, unsigned char *elfin);
-void entry(unsigned long int e_entry, unsigned char *elfin);
-void ex_elf(int elf);
+void is_elf(unsigned char *elfi);
+void magic(unsigned char *elfi);
+void class(unsigned char *elfi);
+void data(unsigned char *elfi);
+void version(unsigned char *elfi);
+void abi(unsigned char *elfi);
+void osabi(unsigned char *elfi);
+void type(unsigned int e_type, unsigned char *elfi);
+void entry(unsigned long int elfe, unsigned char *elfi);
+void close_e(int elf);
 
 /**
  * is_elf - is elf
@@ -23,16 +23,16 @@ void ex_elf(int elf);
  *
  * Return: void
  */
-void is_elf(unsigned char *elfin)
+void is_elf(unsigned char *elfi)
 {
 	int index;
 
 	for (index = 0; index < 4; index++)
 	{
-		if (elfin[index] != 127 &&
-		    elfin[index] != 'E' &&
-		    elfin[index] != 'L' &&
-		    elfin[index] != 'F')
+		if (elfi[index] != 127 &&
+		    elfi[index] != 'E' &&
+		    elfi[index] != 'L' &&
+		    elfi[index] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -46,15 +46,14 @@ void is_elf(unsigned char *elfin)
  *
  * Return: void
  */
-void magic(unsigned char *elfin)
+void magic(unsigned char *elfi)
 {
 	int index;
 
 	printf("  Magic:   ");
 	for (index = 0; index < EI_NIDENT; index++)
 	{
-		printf("%02x", elfin[index]);
-
+		printf("%02x", elfi[index]);
 		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
@@ -68,10 +67,10 @@ void magic(unsigned char *elfin)
  *
  * Return: void
  */
-void class(unsigned char *elfin)
+void class(unsigned char *elfi)
 {
 	printf("  Class:                             ");
-	switch (elfin[EI_CLASS])
+	switch (elfi[EI_CLASS])
 	{
 	case ELFCLASSNONE:
 		printf("none\n");
@@ -83,7 +82,7 @@ void class(unsigned char *elfin)
 		printf("ELF64\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", elfin[EI_CLASS]);
+		printf("<unknown: %x>\n", elfi[EI_CLASS]);
 	}
 }
 
@@ -93,10 +92,10 @@ void class(unsigned char *elfin)
  *
  * Return: void
  */
-void data(unsigned char *elfin)
+void data(unsigned char *elfi)
 {
 	printf("  Data:                              ");
-	switch (elfin[EI_DATA])
+	switch (elfi[EI_DATA])
 	{
 	case ELFDATANONE:
 		printf("none\n");
@@ -108,7 +107,7 @@ void data(unsigned char *elfin)
 		printf("2's complement, big endian\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", elfin[EI_CLASS]);
+		printf("<unknown: %x>\n", elfi[EI_CLASS]);
 	}
 }
 
@@ -118,12 +117,11 @@ void data(unsigned char *elfin)
  *
  * Return: void
  */
-void version(unsigned char *elfin)
+void version(unsigned char *elfi)
 {
 	printf("  Version:                           %d",
-	       elfin[EI_VERSION]);
-
-	switch (elfin[EI_VERSION])
+	       elfi[EI_VERSION]);
+	switch (elfi[EI_VERSION])
 	{
 	case EV_CURRENT:
 		printf(" (current)\n");
@@ -135,16 +133,15 @@ void version(unsigned char *elfin)
 }
 
 /**
- * abi - prints ABI
+ * osabi - prints OS/ABI
  * @elfi: elf numbers
  *
  * Return: void
- * 
  */
-void osabi(unsigned char *elfin)
+void osabi(unsigned char *elfi)
 {
 	printf("  OS/ABI:                            ");
-	switch (elfin[EI_OSABI])
+	switch (elfi[EI_OSABI])
 	{
 	case ELFOSABI_NONE:
 		printf("UNIX - System V\n");
@@ -177,7 +174,7 @@ void osabi(unsigned char *elfin)
 		printf("Standalone App\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", elfin[EI_OSABI]);
+		printf("<unknown: %x>\n", elfi[EI_OSABI]);
 	}
 }
 
@@ -188,25 +185,25 @@ void osabi(unsigned char *elfin)
  * Return: void
  * 
  */
-void abi(unsigned char *elfin)
+void abi(unsigned char *elfi)
 {
 	printf("  ABI Version:                       %d\n",
-	       elfin[EI_ABIVERSION]);
+	       elfi[EI_ABIVERSION]);
 }
 
 /**
  * type - prints type
- * @elfty: The ELF type.
+ * @e_type: The ELF type.
  * @elfi: elf numbers
  *
  * Return: void
  */
-void type(unsigned int elfty, unsigned char *elfin)
+void type(unsigned int e_type, unsigned char *elfi)
 {
-	if (elfin[EI_DATA] == ELFDATA2MSB)
-		elfty >>= 8;
+	if (elfi[EI_DATA] == ELFDATA2MSB)
+		e_type >>= 8;
 	printf("  Type:                              ");
-	switch (elfty)
+	switch (e_type)
 	{
 	case ET_NONE:
 		printf("NONE (None)\n");
@@ -224,7 +221,7 @@ void type(unsigned int elfty, unsigned char *elfin)
 		printf("CORE (Core file)\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", elfty);
+		printf("<unknown: %x>\n", e_type);
 	}
 }
 
@@ -235,20 +232,19 @@ void type(unsigned int elfty, unsigned char *elfin)
  *
  * Return: void
  */
-void entry(unsigned long int e_entry, unsigned char *elfin)
+void entry(unsigned long int elfe, unsigned char *elfi)
 {
 	printf("  Entry point address:               ");
-
-	if (elfin[EI_DATA] == ELFDATA2MSB)
+	if (elfi[EI_DATA] == ELFDATA2MSB)
 	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00) |
-			  ((e_entry >> 8) & 0xFF00FF);
-		e_entry = (e_entry << 16) | (e_entry >> 16);
+		elfe = ((elfe << 8) & 0xFF00FF00) |
+			  ((elfe >> 8) & 0xFF00FF);
+		elfe = (elfe << 16) | (elfe >> 16);
 	}
-	if (elfin[EI_CLASS] == ELFCLASS32)
-		printf("%#x\n", (unsigned int)e_entry);
+	if (elfi[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)elfe);
 	else
-		printf("%#lx\n", e_entry);
+		printf("%#lx\n", elfe);
 }
 
 /**
@@ -257,7 +253,7 @@ void entry(unsigned long int e_entry, unsigned char *elfin)
  *
  * Return: void
  */
-void ex_elf(int elf)
+void close_e(int elf)
 {
 	if (close(elf) == -1)
 	{
@@ -288,7 +284,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		ex_elf(o);
+		close(o);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
@@ -296,22 +292,22 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (r == -1)
 	{
 		free(header);
-		ex_elf(o);
+		close(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
-	is_elf(header->elfin);
+	is_elf(header->elfi);
 	printf("ELF Header:\n");
-	magic(header->elfin);
-	class(header->elfin);
-	data(header->elfin);
-	version(header->elfin);
-	osabi(header->elfin);
-	abi(header->elfin);
-	type(header->elfty, header->elfin);
-	entry(header->e_entry, header->elfin);
+	magic(header->elfi);
+	class(header->elfi);
+	data(header->elfi);
+	version(header->elfi);
+	osabi(header->elfi);
+	abi(header->elfi);
+	type(header->e_type, header->elfi);
+	entry(header->elfe, header->elfi);
 	free(header);
-	ex_elf(o);
+	close_e(o);
 
 	return (0);
 }
