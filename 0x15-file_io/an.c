@@ -14,7 +14,7 @@ void version(unsigned char *e_ident);
 void abi(unsigned char *e_ident);
 void osabi(unsigned char *e_ident);
 void type(unsigned int e_type, unsigned char *e_ident);
-void entry(unsigned long int elfe, unsigned char *e_ident);
+void entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_e(int elf);
 
 /**
@@ -227,24 +227,24 @@ void type(unsigned int e_type, unsigned char *e_ident)
 
 /**
  * entry - prints entry
- * @elfe: address
+ * @e_entry: address
  * @e_ident: elf numbers
  *
  * Return: void
  */
-void entry(unsigned long int elfe, unsigned char *e_ident)
+void entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-		elfe = ((elfe << 8) & 0xFF00FF00) |
-			  ((elfe >> 8) & 0xFF00FF);
-		elfe = (elfe << 16) | (elfe >> 16);
+		e_entry = ((e_entry << 8) & 0xFF00FF00) |
+			  ((e_entry >> 8) & 0xFF00FF);
+		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 	if (e_ident[EI_CLASS] == ELFCLASS32)
-		printf("%#x\n", (unsigned int)elfe);
+		printf("%#x\n", (unsigned int)e_entry);
 	else
-		printf("%#lx\n", elfe);
+		printf("%#lx\n", e_entry);
 }
 
 /**
@@ -305,7 +305,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	osabi(header->e_ident);
 	abi(header->e_ident);
 	type(header->e_type, header->e_ident);
-	entry(header->elfe, header->e_ident);
+	entry(header->e_entry, header->e_ident);
 	free(header);
 	close_e(o);
 
