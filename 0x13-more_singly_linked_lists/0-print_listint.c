@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
- * print_listint - prints listint_t list
- * @h: listint_t list
+ * print_listint - prints list
+ * @h: list
  *
- * Return: size_t size
+ * Return: size
  */
 size_t print_listint(const listint_t *h)
 {
