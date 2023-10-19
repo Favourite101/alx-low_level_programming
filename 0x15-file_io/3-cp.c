@@ -16,7 +16,7 @@ void closee(int);
 */
 int main(int argc, char **argv)
 {
-	int op1, op2, re, wr, cl1, cl2;
+	int op1, op2, re, wr;
 	char *buff;
 
 	if (argc != 3)
