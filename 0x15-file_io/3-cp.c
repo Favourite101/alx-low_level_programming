@@ -56,6 +56,13 @@ int main(int argc, char **argv)
 
 	return (0);
 }
+
+/**
+ * closee - function to close a file
+ * @opt: file to close
+ *
+ * Return: nothing
+ */
 void closee(int opt)
 {
 	int cl;
