@@ -24,8 +24,8 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		if (flag == 0)
 		{
-			return (0);
+			return (f);
 		}
 	}
-	return (f);
+	return (0);
 }
