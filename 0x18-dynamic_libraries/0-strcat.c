@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #include "main.h"
 
 /**
@@ -5,7 +7,7 @@
  * @dest: pointer to be checked
  * @src: pointer to be checked
  *
- * Return: a pointer to the resulting string 
+ * Return: a pointer to the resulting string
  */
 char *_strcat(char *dest, char *src)
 {
